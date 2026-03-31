@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Support My Victory Weekend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    img {
+      width: 150px;
+      border-radius: 50%;
+    }
+    h1 {
+      margin: 10px 0;
+    }
+    .progress {
+      background: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .progress-bar {
+      height: 20px;
+      background: #6c63ff;
+      width: 0%;
+      color: white;
+      font-size: 12px;
+      line-height: 20px;
+    }
+    .btn {
+      background: #6c63ff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .details {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <img src="IMG_512.jpg" alt="Your Photo">
+
+  <h1>Hi, I'm Nonkululeko 👋</h1>
+
+  <p>
+    I'm a final-year Computer Science student at Wits University.
+    I'm raising <strong>R450</strong> to attend a Victory & Leadership Weekend.
+  </p>
+
+  <p>
+    This program focuses on personal growth, confidence, and leadership.
+    As I prepare to enter the workplace, I really want to grow in confidence
+    and become someone who can positively impact others.
+  </p>
+
+  <div class="progress">
+    <div class="progress-bar" id="progressBar">0%</div>
+  </div>
+
+  <p><strong>R <span id="raised">0</span> / 450 raised</strong></p>
+
+  <button class="btn" onclick="copyDetails()">Copy Payment Details</button>
+
+  <div class="details" id="paymentDetails">
+    Bank: FNB <br>
+    Account Holder: Nonkululeko Xaba <br>
+    Account Number: 63001496769 <br>
+    Reference: Victory
+  </div>
+</div>
+
+<script>
+  let raised = 0; // update this manually
+  let goal = 450;
+
+  function updateProgress() {
+    let percent = (raised / goal) * 100;
+    let bar = document.getElementById("progressBar");
+    bar.style.width = percent + "%";
+    bar.innerText = Math.round(percent) + "%";
+    document.getElementById("raised").innerText = raised;
+  }
+
+  function copyDetails() {
+    let text = document.getElementById("paymentDetails").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Payment details copied!");
+  }
+
+  updateProgress();
+</script>
+
+</body>
+</html>
